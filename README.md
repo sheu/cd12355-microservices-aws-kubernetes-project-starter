@@ -48,6 +48,11 @@ Fluent Bit ships container logs from all pods to five CloudWatch log groups, inc
 
 ![CloudWatch Log Management page listing 5 log groups including containerinsights application, dataplane, host, EKS cluster, and CodeBuild logs](log-groups.png)
 
+### Application Logs in CloudWatch
+The log stream for the `coworking` pod inside `/aws/containerinsights/sheu-cluster/application` captures the application's periodic database queries in real time. Each JSON log entry shows the SQL executed — `SELECT Date(created_at)`, `COUNT(*)`, `FROM tokens`, `WHERE used_at IS NOT NULL`, `GROUP BY Date(created_at)` — confirming the analytics scheduler is running as expected.
+
+![CloudWatch Log Events for the coworking pod log stream showing JSON-formatted application log entries including periodic SQL query execution from the analytics scheduler](coworking-cloudwatch-logs.png)
+
 ### CloudWatch Container Insights
 The `amazon-cloudwatch-observability` EKS add-on provides real-time cluster-level metrics: 1 ready node, 0 container restarts, ~3.76% node CPU utilisation, and ~45.1% node memory utilisation, with per-pod CPU and memory charts.
 
