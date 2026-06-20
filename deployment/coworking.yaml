@@ -30,8 +30,15 @@ spec:
     spec:
       containers:
       - name: coworking
-        image: 074416719468.dkr.ecr.eu-central-1.amazonaws.com/coworking-analytics:latest
+        image: 074416719468.dkr.ecr.eu-central-1.amazonaws.com/coworking-analytics:3
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "250m"
+            memory: "256Mi"
         livenessProbe:
           httpGet:
             path: /health_check

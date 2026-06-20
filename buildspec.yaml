@@ -14,10 +14,10 @@ phases:
   build:
     commands:
       - echo Building Docker image...
-      - docker build -t $IMAGE_REPO_NAME:$CODEBUILD_BUILD_NUMBER ./analytics
-      - docker tag $IMAGE_REPO_NAME:$CODEBUILD_BUILD_NUMBER $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$CODEBUILD_BUILD_NUMBER
+      - docker build -t $IMAGE_REPO_NAME:1.0.$CODEBUILD_BUILD_NUMBER ./analytics
+      - docker tag $IMAGE_REPO_NAME:1.0.$CODEBUILD_BUILD_NUMBER $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:1.0.$CODEBUILD_BUILD_NUMBER
   post_build:
     commands:
       - echo Pushing Docker image to ECR...
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$CODEBUILD_BUILD_NUMBER
-      - echo Build complete. Image pushed with tag $CODEBUILD_BUILD_NUMBER
+      - echo Build complete. Image pushed with tag 1.0.$CODEBUILD_BUILD_NUMBER
