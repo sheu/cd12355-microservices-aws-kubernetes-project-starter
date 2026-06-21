@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     AWS_DEFAULT_REGION: eu-central-1
-    AWS_ACCOUNT_ID: "074416719468"
+    AWS_ACCOUNT_ID: "650797337771"
     IMAGE_REPO_NAME: coworking-analytics
 
 phases:
