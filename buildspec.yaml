@@ -19,5 +19,5 @@ phases:
   post_build:
     commands:
       - echo Pushing Docker image to ECR...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$CODEBUILD_BUILD_NUMBER
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:1.0.$CODEBUILD_BUILD_NUMBER
       - echo Build complete. Image pushed with tag 1.0.$CODEBUILD_BUILD_NUMBER
